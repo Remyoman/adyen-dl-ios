@@ -50,7 +50,7 @@ public class PaymentsProcessor {
     /**
      Fetches list of available payment methods for a given payment object.
      
-     After calling this method, mobile client will send a signature calculation request to the merchnat server specified in `Configuration`.
+     After calling this method, mobile client will send a signature calculation request to the merchant server specified in `Configuration`.
      
      - parameter payment:    Payment object.
      - parameter completion: Completion handler will be called when list of payment methods is avalible or an error occured.
@@ -74,7 +74,7 @@ public class PaymentsProcessor {
     /**
      Fetches payment URL for a given pair of paument object and payment method.
      
-     After calling this method, mobile client will send a signature calculation request to the merchnat server specified in `Configuration`.
+     After calling this method, mobile client will send a signature calculation request to the merchant server specified in `Configuration`.
      
      Use payment URL provided in completion handler to continue payment flow. Open payment URL in a mobile browser.
      
@@ -103,7 +103,7 @@ public class PaymentsProcessor {
      
      Pass received callback URL to this method to validate final result of the payment.
      
-     After calling this method merchnat server will be asked to calculate signature for a given result.
+     After calling this method merchant server will be asked to calculate signature for a given result.
      
      
      
@@ -135,8 +135,8 @@ public class PaymentsProcessor {
     
 }
 
-private typealias MerchnatSignature = PaymentsProcessor
-extension MerchnatSignature {
+private typealias MerchantSignature = PaymentsProcessor
+extension MerchantSignature {
     
     typealias MerchantSignatureCompletion = (parameters: [String: String]?, error: Error?) -> ()
     
