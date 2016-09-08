@@ -346,7 +346,7 @@ extension ResultVerification {
                 }
                 
                 do {
-                    guard let json = try NSJSONSerialization.JSONObjectWithData(data, options: []) as? [String: String] else {
+                    guard let json = try NSJSONSerialization.JSONObjectWithData(data, options: []) as? [String: AnyObject] else {
                         completion(result: nil, error: .unexpectedData)
                         return
                     }
@@ -354,7 +354,7 @@ extension ResultVerification {
                     //  Check if status is determined.
                     let eventCodeKey = "eventCode"
                     let successKey = "success"
-                    if let eventCode = json[eventCodeKey], let success = json[successKey] where eventCode == "AUTHORISATION" {
+                    if let eventCode = json[eventCodeKey] as? String, let success = json[successKey] as? String where eventCode == "AUTHORISATION" {
                         let status: PaymentStatus = (success == "true") ? .authorised : .refused
                         let result = PaymentResult(payment: payment, status: status)
                         completion(result: result, error: nil)
