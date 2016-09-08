@@ -5,7 +5,7 @@ XCPlaygroundPage.currentPage.needsIndefiniteExecution = true
 
 
 
-//  Merchnat URLs.
+//  Merchant URLs.
 let paymentSignatureURL =           //  PROVIDE URL
 let paymentResultSignatureURL =     //  PROVIDE URL
 let paymentStatusURL =              //  PROVIDE URL
