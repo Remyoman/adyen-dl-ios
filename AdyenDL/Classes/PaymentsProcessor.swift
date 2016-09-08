@@ -157,7 +157,7 @@ extension MerchnatSignature {
     func fetchMerchnantSignatureFor(resultURL url: NSURL, completion: MerchantSignatureCompletion) {
         var parameters = [String: String]()
         if let urlComponents = NSURLComponents(URL: url, resolvingAgainstBaseURL: true) {
-            urlComponents.queryItems?.map({parameters[$0.name] = ($0.value ?? "")})
+            _ = urlComponents.queryItems?.map({parameters[$0.name] = ($0.value ?? "")})
         }
         fetchMerchantSignatureFor(parameters: parameters,
                                   fromURL: configuration.paymentResultSignatureURL,
@@ -328,7 +328,7 @@ extension ResultVerification {
     var fetchResultFor: (payment: Payment, retryCount: Int, completion: PaymentResultCompletion) -> Void {
         return { payment, retryCount, completion in
             
-            var retryCount = retryCount - 1
+            let retryCount = retryCount - 1
             
             let merchantReferenceKey = "merchantReference"
             let parameters = [merchantReferenceKey: payment.merchantReference]

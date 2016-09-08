@@ -48,7 +48,7 @@ extension NSURL {
     
     class func queryStringWith(parameters: [String: String]) -> String {
         var queryString = ""
-        var allowedCharacters = NSMutableCharacterSet.URLHostAllowedCharacterSet().mutableCopy() as! NSMutableCharacterSet
+        let allowedCharacters = NSMutableCharacterSet.URLHostAllowedCharacterSet().mutableCopy() as! NSMutableCharacterSet
         allowedCharacters.removeCharactersInString("+:=")
         for (key, value) in parameters {
             guard let value = value.stringByAddingPercentEncodingWithAllowedCharacters(allowedCharacters) else {
@@ -70,7 +70,7 @@ extension NSURL {
     func queryParameters() -> [String: String]? {
         let urlComponents = NSURLComponents(URL: self, resolvingAgainstBaseURL: true)
         var parameters = [String: String]()
-        urlComponents?.queryItems?.map({parameters[$0.name] = ($0.value ?? "")})
+        _ = urlComponents?.queryItems?.map({parameters[$0.name] = ($0.value ?? "")})
         return parameters
     }
     
