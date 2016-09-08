@@ -1,0 +1,22 @@
+{
+  "name": "AdyenDL",
+  "version": "0.1.0",
+  "summary": "A short description of AdyenDL.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/<GITHUB_USERNAME>/AdyenDL",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Oleg Lutsenko": "oleg.lutsenko@adyen.com"
+  },
+  "source": {
+    "git": "https://github.com/<GITHUB_USERNAME>/AdyenDL.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "AdyenDL/Classes/**/*"
+}

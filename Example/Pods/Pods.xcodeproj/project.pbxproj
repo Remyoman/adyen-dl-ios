@@ -1,0 +1,707 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0B71819F940DF2AF4C08074C9F0D8D67 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
+		3813E029807728506C77783AD875FF79 /* Pods-AdyenDL_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BD41F63EF753CF4CC382D2215ACDD2AF /* Pods-AdyenDL_Example-dummy.m */; };
+		5D7D22BE207FE2B2146420D51F023355 /* Pods-AdyenDL_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 04A05AA75C35B1ECCF8C6C9FF3D29B37 /* Pods-AdyenDL_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6191F1C546D5C7D2F731A02EB934366C /* AdyenDL-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EB0232414E318C7822F6BD624CB736FF /* AdyenDL-dummy.m */; };
+		7C258D3E1D7EB08D0067F8E7 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C258D381D7EB08D0067F8E7 /* Configuration.swift */; };
+		7C258D3F1D7EB08D0067F8E7 /* Payment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C258D391D7EB08D0067F8E7 /* Payment.swift */; };
+		7C258D401D7EB08D0067F8E7 /* PaymentMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C258D3A1D7EB08D0067F8E7 /* PaymentMethod.swift */; };
+		7C258D411D7EB08D0067F8E7 /* PaymentResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C258D3B1D7EB08D0067F8E7 /* PaymentResult.swift */; };
+		7C258D421D7EB08D0067F8E7 /* PaymentsProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C258D3C1D7EB08D0067F8E7 /* PaymentsProcessor.swift */; };
+		7C258D431D7EB08D0067F8E7 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C258D3D1D7EB08D0067F8E7 /* Utils.swift */; };
+		964374F45B87B87350C148AD4B3344A2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
+		AE9BF29B6DB6A61E3ADC2400C2026E21 /* AdyenDL-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D92848F0BA33D9B7889021847E022EB /* AdyenDL-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C04DDF2AAF5F7445B19F28722FAD091D /* Pods-AdyenDL_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 90B513302BE1C3789F20ED38C4EF6824 /* Pods-AdyenDL_Tests-dummy.m */; };
+		D3197ABA119E26252938E04E18F176C7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
+		F82D516D4FCF1685D385CDFB58A6F948 /* Pods-AdyenDL_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = EDE2434D3E2EBF03367B0760072D3100 /* Pods-AdyenDL_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		ED3E85A18EE4995F56697ED3D430EAC9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8E04372F51FBF210B9CEFF94C2DBE8CB;
+			remoteInfo = AdyenDL;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		028BA6CF4B040A99C5CF21E9D38059F3 /* Pods-AdyenDL_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AdyenDL_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		04A05AA75C35B1ECCF8C6C9FF3D29B37 /* Pods-AdyenDL_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-AdyenDL_Example-umbrella.h"; sourceTree = "<group>"; };
+		054351E9A56BE3FA2B1E4C5698C34F93 /* AdyenDL.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = AdyenDL.modulemap; sourceTree = "<group>"; };
+		288D4AC3A21E075EEFB91EBEAEF50FAF /* Pods-AdyenDL_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AdyenDL_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		3E56E32F9C0BC99749DA0B8C4166D0C3 /* Pods-AdyenDL_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-AdyenDL_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		5375291D148A2E21E51B95D79B7D0AF2 /* Pods-AdyenDL_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AdyenDL_Example.release.xcconfig"; sourceTree = "<group>"; };
+		647422B56F533AB80A37917067183FDD /* Pods_AdyenDL_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AdyenDL_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		65A6B58246371EF8E3DB73D5325218C7 /* AdyenDL.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AdyenDL.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		669E91010B7B66540DE31FD296A6BC95 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6E7F95E446CCB0E67182D1E7BA5B92B3 /* Pods-AdyenDL_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AdyenDL_Example-frameworks.sh"; sourceTree = "<group>"; };
+		71BE526F6325912913A5FD8C1DDB7D3C /* Pods-AdyenDL_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AdyenDL_Tests-frameworks.sh"; sourceTree = "<group>"; };
+		7573290D66C7D45BF139E8CAFC04229C /* AdyenDL-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AdyenDL-prefix.pch"; sourceTree = "<group>"; };
+		7C258D381D7EB08D0067F8E7 /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Configuration.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		7C258D391D7EB08D0067F8E7 /* Payment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Payment.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		7C258D3A1D7EB08D0067F8E7 /* PaymentMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = PaymentMethod.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		7C258D3B1D7EB08D0067F8E7 /* PaymentResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = PaymentResult.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		7C258D3C1D7EB08D0067F8E7 /* PaymentsProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = PaymentsProcessor.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		7C258D3D1D7EB08D0067F8E7 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Utils.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		7D11199FFC70C51A24E155F841F9ADF0 /* AdyenDL.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AdyenDL.xcconfig; sourceTree = "<group>"; };
+		80FDCD864CB087928F936AB21C9F1BD7 /* Pods_AdyenDL_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AdyenDL_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E104AC755B0043178E830CDE422CCD2 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		90B513302BE1C3789F20ED38C4EF6824 /* Pods-AdyenDL_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-AdyenDL_Tests-dummy.m"; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D92848F0BA33D9B7889021847E022EB /* AdyenDL-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AdyenDL-umbrella.h"; sourceTree = "<group>"; };
+		B0A900C2F29F8CA580A84AF9570AA8AC /* Pods-AdyenDL_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-AdyenDL_Example.modulemap"; sourceTree = "<group>"; };
+		B36D62097CDCD3A3F2B87D6AFD640405 /* Pods-AdyenDL_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AdyenDL_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		BD41F63EF753CF4CC382D2215ACDD2AF /* Pods-AdyenDL_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-AdyenDL_Example-dummy.m"; sourceTree = "<group>"; };
+		C42EF976997065CDC7BCB0F4B800058B /* Pods-AdyenDL_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-AdyenDL_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		DC061116184D6B3CF73D905F1560E03E /* Pods-AdyenDL_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AdyenDL_Example-resources.sh"; sourceTree = "<group>"; };
+		E175C00125568D5E77B3B509C10F434B /* Pods-AdyenDL_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AdyenDL_Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		EB0232414E318C7822F6BD624CB736FF /* AdyenDL-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "AdyenDL-dummy.m"; sourceTree = "<group>"; };
+		EDE2434D3E2EBF03367B0760072D3100 /* Pods-AdyenDL_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-AdyenDL_Tests-umbrella.h"; sourceTree = "<group>"; };
+		EED8D82A9AD35A3539D482E0C6FFA5FD /* Pods-AdyenDL_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AdyenDL_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		EF59BEC912686976D9297CE02A0A2839 /* Pods-AdyenDL_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AdyenDL_Tests-resources.sh"; sourceTree = "<group>"; };
+		F291975A0271F8CA7D62CCD1EFE7354A /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F2C2A6A3E835622B43320F58ECF59143 /* Pods-AdyenDL_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-AdyenDL_Tests.modulemap"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		46F6646C0F0D1A7688A59D64662DE6CB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0B71819F940DF2AF4C08074C9F0D8D67 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7E555E13C27D7EC9DC9091C8681B682A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D3197ABA119E26252938E04E18F176C7 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FFA59C15D16F73F05A88F49AD7DEF787 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				964374F45B87B87350C148AD4B3344A2 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		059EBC788DB6129EBBC8415F31C284C3 /* Pods-AdyenDL_Example */ = {
+			isa = PBXGroup;
+			children = (
+				F291975A0271F8CA7D62CCD1EFE7354A /* Info.plist */,
+				B0A900C2F29F8CA580A84AF9570AA8AC /* Pods-AdyenDL_Example.modulemap */,
+				3E56E32F9C0BC99749DA0B8C4166D0C3 /* Pods-AdyenDL_Example-acknowledgements.markdown */,
+				E175C00125568D5E77B3B509C10F434B /* Pods-AdyenDL_Example-acknowledgements.plist */,
+				BD41F63EF753CF4CC382D2215ACDD2AF /* Pods-AdyenDL_Example-dummy.m */,
+				6E7F95E446CCB0E67182D1E7BA5B92B3 /* Pods-AdyenDL_Example-frameworks.sh */,
+				DC061116184D6B3CF73D905F1560E03E /* Pods-AdyenDL_Example-resources.sh */,
+				04A05AA75C35B1ECCF8C6C9FF3D29B37 /* Pods-AdyenDL_Example-umbrella.h */,
+				288D4AC3A21E075EEFB91EBEAEF50FAF /* Pods-AdyenDL_Example.debug.xcconfig */,
+				5375291D148A2E21E51B95D79B7D0AF2 /* Pods-AdyenDL_Example.release.xcconfig */,
+			);
+			name = "Pods-AdyenDL_Example";
+			path = "Target Support Files/Pods-AdyenDL_Example";
+			sourceTree = "<group>";
+		};
+		0DB759EF40A83F824C8697A313A888A8 /* AdyenDL */ = {
+			isa = PBXGroup;
+			children = (
+				138716C712DB1A1EAFB316D846225E7F /* Classes */,
+			);
+			path = AdyenDL;
+			sourceTree = "<group>";
+		};
+		138716C712DB1A1EAFB316D846225E7F /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				7C258D381D7EB08D0067F8E7 /* Configuration.swift */,
+				7C258D391D7EB08D0067F8E7 /* Payment.swift */,
+				7C258D3A1D7EB08D0067F8E7 /* PaymentMethod.swift */,
+				7C258D3B1D7EB08D0067F8E7 /* PaymentResult.swift */,
+				7C258D3C1D7EB08D0067F8E7 /* PaymentsProcessor.swift */,
+				7C258D3D1D7EB08D0067F8E7 /* Utils.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		2E8734D490786BC4AF8F65CE5CD7638B /* Pods-AdyenDL_Tests */ = {
+			isa = PBXGroup;
+			children = (
+				669E91010B7B66540DE31FD296A6BC95 /* Info.plist */,
+				F2C2A6A3E835622B43320F58ECF59143 /* Pods-AdyenDL_Tests.modulemap */,
+				C42EF976997065CDC7BCB0F4B800058B /* Pods-AdyenDL_Tests-acknowledgements.markdown */,
+				028BA6CF4B040A99C5CF21E9D38059F3 /* Pods-AdyenDL_Tests-acknowledgements.plist */,
+				90B513302BE1C3789F20ED38C4EF6824 /* Pods-AdyenDL_Tests-dummy.m */,
+				71BE526F6325912913A5FD8C1DDB7D3C /* Pods-AdyenDL_Tests-frameworks.sh */,
+				EF59BEC912686976D9297CE02A0A2839 /* Pods-AdyenDL_Tests-resources.sh */,
+				EDE2434D3E2EBF03367B0760072D3100 /* Pods-AdyenDL_Tests-umbrella.h */,
+				B36D62097CDCD3A3F2B87D6AFD640405 /* Pods-AdyenDL_Tests.debug.xcconfig */,
+				EED8D82A9AD35A3539D482E0C6FFA5FD /* Pods-AdyenDL_Tests.release.xcconfig */,
+			);
+			name = "Pods-AdyenDL_Tests";
+			path = "Target Support Files/Pods-AdyenDL_Tests";
+			sourceTree = "<group>";
+		};
+		2FCE6DF016B8312641A52F40034DF065 /* AdyenDL */ = {
+			isa = PBXGroup;
+			children = (
+				0DB759EF40A83F824C8697A313A888A8 /* AdyenDL */,
+				9E524D794D01BC966CE45A88750D8942 /* Support Files */,
+			);
+			name = AdyenDL;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		3DCAB2B7CDE207B3958B6CB957FCC758 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		7C1CA65A2B06E325EB13B674BE0CF678 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				65A6B58246371EF8E3DB73D5325218C7 /* AdyenDL.framework */,
+				647422B56F533AB80A37917067183FDD /* Pods_AdyenDL_Example.framework */,
+				80FDCD864CB087928F936AB21C9F1BD7 /* Pods_AdyenDL_Tests.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				D2D84125E1FEF25A6021DBF05493AEF2 /* Development Pods */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				7C1CA65A2B06E325EB13B674BE0CF678 /* Products */,
+				E75816AF3776805946A3CA23F8F2BE78 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		9E524D794D01BC966CE45A88750D8942 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				054351E9A56BE3FA2B1E4C5698C34F93 /* AdyenDL.modulemap */,
+				7D11199FFC70C51A24E155F841F9ADF0 /* AdyenDL.xcconfig */,
+				EB0232414E318C7822F6BD624CB736FF /* AdyenDL-dummy.m */,
+				7573290D66C7D45BF139E8CAFC04229C /* AdyenDL-prefix.pch */,
+				9D92848F0BA33D9B7889021847E022EB /* AdyenDL-umbrella.h */,
+				8E104AC755B0043178E830CDE422CCD2 /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/AdyenDL";
+			sourceTree = "<group>";
+		};
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3DCAB2B7CDE207B3958B6CB957FCC758 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D2D84125E1FEF25A6021DBF05493AEF2 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2FCE6DF016B8312641A52F40034DF065 /* AdyenDL */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		E75816AF3776805946A3CA23F8F2BE78 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				059EBC788DB6129EBBC8415F31C284C3 /* Pods-AdyenDL_Example */,
+				2E8734D490786BC4AF8F65CE5CD7638B /* Pods-AdyenDL_Tests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		074CA9A616BE802AB0CB95F6562E4A43 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5D7D22BE207FE2B2146420D51F023355 /* Pods-AdyenDL_Example-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		31A7920C25A4334F793A14AAA8E5F510 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE9BF29B6DB6A61E3ADC2400C2026E21 /* AdyenDL-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		39BBE3193F15111CBC1783F5E5ED7559 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F82D516D4FCF1685D385CDFB58A6F948 /* Pods-AdyenDL_Tests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		6857B183B8C583218E3C868D6C6A40CF /* Pods-AdyenDL_Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 690CE53857B533DEA824D5989B9DF4C1 /* Build configuration list for PBXNativeTarget "Pods-AdyenDL_Example" */;
+			buildPhases = (
+				BCEAE25EA11A760AB17D803998D62CB9 /* Sources */,
+				FFA59C15D16F73F05A88F49AD7DEF787 /* Frameworks */,
+				074CA9A616BE802AB0CB95F6562E4A43 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				79A3572648D4025AF91D0153CF8A1E67 /* PBXTargetDependency */,
+			);
+			name = "Pods-AdyenDL_Example";
+			productName = "Pods-AdyenDL_Example";
+			productReference = 647422B56F533AB80A37917067183FDD /* Pods_AdyenDL_Example.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		8E04372F51FBF210B9CEFF94C2DBE8CB /* AdyenDL */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B6F0BF018502F5A15060ED2B9602B547 /* Build configuration list for PBXNativeTarget "AdyenDL" */;
+			buildPhases = (
+				DB0A954B4860409C5763A9D1283CD89F /* Sources */,
+				46F6646C0F0D1A7688A59D64662DE6CB /* Frameworks */,
+				31A7920C25A4334F793A14AAA8E5F510 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AdyenDL;
+			productName = AdyenDL;
+			productReference = 65A6B58246371EF8E3DB73D5325218C7 /* AdyenDL.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		E1C6149466E553096AFF8258FF249259 /* Pods-AdyenDL_Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F7E55D910FDDC57374D5FF7589B48252 /* Build configuration list for PBXNativeTarget "Pods-AdyenDL_Tests" */;
+			buildPhases = (
+				6AC7F9C1669BA5953CBCD20938F9DE51 /* Sources */,
+				7E555E13C27D7EC9DC9091C8681B682A /* Frameworks */,
+				39BBE3193F15111CBC1783F5E5ED7559 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-AdyenDL_Tests";
+			productName = "Pods-AdyenDL_Tests";
+			productReference = 80FDCD864CB087928F936AB21C9F1BD7 /* Pods_AdyenDL_Tests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 7C1CA65A2B06E325EB13B674BE0CF678 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8E04372F51FBF210B9CEFF94C2DBE8CB /* AdyenDL */,
+				6857B183B8C583218E3C868D6C6A40CF /* Pods-AdyenDL_Example */,
+				E1C6149466E553096AFF8258FF249259 /* Pods-AdyenDL_Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6AC7F9C1669BA5953CBCD20938F9DE51 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C04DDF2AAF5F7445B19F28722FAD091D /* Pods-AdyenDL_Tests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BCEAE25EA11A760AB17D803998D62CB9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3813E029807728506C77783AD875FF79 /* Pods-AdyenDL_Example-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DB0A954B4860409C5763A9D1283CD89F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7C258D3E1D7EB08D0067F8E7 /* Configuration.swift in Sources */,
+				7C258D411D7EB08D0067F8E7 /* PaymentResult.swift in Sources */,
+				6191F1C546D5C7D2F731A02EB934366C /* AdyenDL-dummy.m in Sources */,
+				7C258D3F1D7EB08D0067F8E7 /* Payment.swift in Sources */,
+				7C258D401D7EB08D0067F8E7 /* PaymentMethod.swift in Sources */,
+				7C258D421D7EB08D0067F8E7 /* PaymentsProcessor.swift in Sources */,
+				7C258D431D7EB08D0067F8E7 /* Utils.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		79A3572648D4025AF91D0153CF8A1E67 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = AdyenDL;
+			target = 8E04372F51FBF210B9CEFF94C2DBE8CB /* AdyenDL */;
+			targetProxy = ED3E85A18EE4995F56697ED3D430EAC9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0ACDCBCB0B6796575F46FFA2F5410C6B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		35BDE767A146CE7144AF359C28492673 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B36D62097CDCD3A3F2B87D6AFD640405 /* Pods-AdyenDL_Tests.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-AdyenDL_Tests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-AdyenDL_Tests/Pods-AdyenDL_Tests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_AdyenDL_Tests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		7DE3087C0810745818745A7E2698F6B1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5375291D148A2E21E51B95D79B7D0AF2 /* Pods-AdyenDL_Example.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-AdyenDL_Example/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-AdyenDL_Example/Pods-AdyenDL_Example.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_AdyenDL_Example;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		D3E3D092A3FF7311A98E44BBA36FFD12 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				ONLY_ACTIVE_ARCH = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		D88E8E4D17B882C718B8AC5A1482FA1D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7D11199FFC70C51A24E155F841F9ADF0 /* AdyenDL.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/AdyenDL/AdyenDL-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/AdyenDL/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/AdyenDL/AdyenDL.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = AdyenDL;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		EB418A90D7110CAF9DFB9C7A15CFD195 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7D11199FFC70C51A24E155F841F9ADF0 /* AdyenDL.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/AdyenDL/AdyenDL-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/AdyenDL/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/AdyenDL/AdyenDL.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = AdyenDL;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		EDDB3DC5281B605DF587092C15678F15 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EED8D82A9AD35A3539D482E0C6FFA5FD /* Pods-AdyenDL_Tests.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-AdyenDL_Tests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-AdyenDL_Tests/Pods-AdyenDL_Tests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_AdyenDL_Tests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		FBA808F34A9E648AD4BEDD3BACB0DB67 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 288D4AC3A21E075EEFB91EBEAEF50FAF /* Pods-AdyenDL_Example.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-AdyenDL_Example/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-AdyenDL_Example/Pods-AdyenDL_Example.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_AdyenDL_Example;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D3E3D092A3FF7311A98E44BBA36FFD12 /* Debug */,
+				0ACDCBCB0B6796575F46FFA2F5410C6B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		690CE53857B533DEA824D5989B9DF4C1 /* Build configuration list for PBXNativeTarget "Pods-AdyenDL_Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FBA808F34A9E648AD4BEDD3BACB0DB67 /* Debug */,
+				7DE3087C0810745818745A7E2698F6B1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B6F0BF018502F5A15060ED2B9602B547 /* Build configuration list for PBXNativeTarget "AdyenDL" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D88E8E4D17B882C718B8AC5A1482FA1D /* Debug */,
+				EB418A90D7110CAF9DFB9C7A15CFD195 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F7E55D910FDDC57374D5FF7589B48252 /* Build configuration list for PBXNativeTarget "Pods-AdyenDL_Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				35BDE767A146CE7144AF359C28492673 /* Debug */,
+				EDDB3DC5281B605DF587092C15678F15 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

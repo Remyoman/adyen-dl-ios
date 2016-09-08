@@ -1,0 +1,6 @@
+framework module Pods_AdyenDL_Example {
+  umbrella header "Pods-AdyenDL_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

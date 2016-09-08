@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'AdyenDL_Example' do
+  pod 'AdyenDL', :path => '../'
+
+  target 'AdyenDL_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

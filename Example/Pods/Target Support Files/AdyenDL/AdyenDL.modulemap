@@ -1,0 +1,6 @@
+framework module AdyenDL {
+  umbrella header "AdyenDL-umbrella.h"
+
+  export *
+  module * { export * }
+}
