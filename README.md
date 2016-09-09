@@ -1,6 +1,6 @@
 # AdyenDL for iOS
 
-[![CI Status](http://img.shields.io/travis/Adyen/AdyenDL.svg?style=flat)](https://travis-ci.org/Adyen/AdyenDL)
+[![CI Status](http://img.shields.io/travis/Adyen/adyen-dl-ios.svg?style=flat)](https://travis-ci.org/Adyen/AdyenDL)
 [![Version](https://img.shields.io/cocoapods/v/AdyenDL.svg?style=flat)](http://cocoapods.org/pods/AdyenDL)
 [![License](https://img.shields.io/cocoapods/l/AdyenDL.svg?style=flat)](http://cocoapods.org/pods/AdyenDL)
 [![Platform](https://img.shields.io/cocoapods/p/AdyenDL.svg?style=flat)](http://cocoapods.org/pods/AdyenDL)
