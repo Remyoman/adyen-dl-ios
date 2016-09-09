@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/oleg/src/Adyen/adyen-dl-ios/Example/Getting Started.playground">
+      location = "group:Getting Started.playground">
    </FileRef>
    <FileRef
       location = "group:AdyenDL.xcodeproj">
