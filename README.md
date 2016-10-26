@@ -17,7 +17,7 @@ CocoaPods v1.x is the preferred way of installation. If not installed on your ma
 
   `$ sudo gem install cocoapods`.
 
-Although most of the complexity of the integration is wrapped in this library, you also need to set up a merchant server to validate the integrity of each payment request/response. Please find an example of the API for the merchants server [here](https://github.com/Adyen/adyen-checkout-ios/tree/master/ServerSideExample/Parse).
+Although most of the complexity of the integration is wrapped in this library, you also need to set up a merchant server to validate the integrity of each payment request/response. Please find an example of the API for the merchants server [here](https://github.com/Adyen/adyen-dl-ios/blob/master/SERVER.md).
 
 ## Installation
 For your convenience we've included an example app in this repository that can be used as a reference while integrating. To try an example run in the terminal:
