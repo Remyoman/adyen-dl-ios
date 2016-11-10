@@ -1,7 +1,7 @@
 import AdyenDL
-import XCPlayground
+import PlaygroundSupport
 
-XCPlaygroundPage.currentPage.needsIndefiniteExecution = true
+PlaygroundPage.current.needsIndefiniteExecution = true
 
 
 
@@ -15,9 +15,9 @@ let paymentStatusURL =              //  PROVIDE URL
 //  Configure 'Payments Processor'.
 let configuration = Configuration(
     environment: .live,
-    paymentSignatureURL: NSURL(string: paymentSignatureURL)!,
-    paymentResultSignatureURL: NSURL(string: paymentResultSignatureURL)!,
-    paymentStatusURL: NSURL(string: paymentStatusURL)!
+    paymentSignatureURL: URL(string: paymentSignatureURL)!,
+    paymentResultSignatureURL: URL(string: paymentResultSignatureURL)!,
+    paymentStatusURL: URL(string: paymentStatusURL)!
 )
 
 let paymentsProcessor = PaymentsProcessor(configuration: configuration)
