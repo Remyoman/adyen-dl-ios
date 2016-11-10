@@ -26,13 +26,13 @@ public enum PaymentStatus: String {
 }
 
 /// Payment result information.
-public class PaymentResult {
+open class PaymentResult {
     
     /// Payment object.
-    public let payment: Payment
+    open let payment: Payment
     
     /// Status of the payment.
-    public let status: PaymentStatus
+    open let status: PaymentStatus
     
     init(payment: Payment, status: PaymentStatus) {
         self.payment = payment

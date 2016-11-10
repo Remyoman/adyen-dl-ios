@@ -31,10 +31,10 @@ class PaymentPickerViewController: LoadingTableViewController {
     
     var safariViewController: SFSafariViewController?
     
-    var completion: ((url: NSURL, paymentsProcessor: PaymentsProcessor) -> ())?
+    var completion: ((_ url: URL, _ paymentsProcessor: PaymentsProcessor) -> ())?
     
     init(payment: Payment) {
-        super.init(style: .Plain)
+        super.init(style: .plain)
         
         self.payment = payment
     }
@@ -50,28 +50,28 @@ class PaymentPickerViewController: LoadingTableViewController {
         loading = true
 
         navigationItem.rightBarButtonItem = UIBarButtonItem(
-            barButtonSystemItem: .Cancel,
+            barButtonSystemItem: .cancel,
             target: self,
             action: #selector(self.cancelPayment))
         
-        tableView.registerClass(LoadingTableViewCell.classForCoder(), forCellReuseIdentifier: "cell")
+        tableView.register(LoadingTableViewCell.classForCoder(), forCellReuseIdentifier: "cell")
         
-        NSNotificationCenter.defaultCenter().addObserver(
+        NotificationCenter.default.addObserver(
             self,
             selector: #selector(PaymentPickerViewController.receivedUrlNotification),
-            name: ApplicationDidReceiveResultURLNotification,
+            name: NSNotification.Name(rawValue: ApplicationDidReceiveResultURLNotification),
             object: nil)
         
         fetchPayments()
     }
 
     func cancelPayment() {
-        dismissViewControllerAnimated(true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
 
     func receivedUrlNotification() {
         if let url = resultURL {
-            completion?(url: url, paymentsProcessor: paymentsProcessor)
+            completion?(url, paymentsProcessor)
         }
     }
     
@@ -88,7 +88,7 @@ class PaymentPickerViewController: LoadingTableViewController {
             self.paymentMethods = paymentMethods
             self.loading = false
             
-            dispatch_async(dispatch_get_main_queue(), { 
+            DispatchQueue.main.async(execute: { 
                 self.tableView.reloadData()
             })
         }
@@ -97,21 +97,21 @@ class PaymentPickerViewController: LoadingTableViewController {
 
 private typealias TableViewFunctions = PaymentPickerViewController
 extension TableViewFunctions {
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return paymentMethods?.count ?? 0
     }
     
-    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         let method = paymentMethods?[section]
         return method?.issuers == nil ? " " : method?.name
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return paymentMethods?[section].issuers?.count ?? 1
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
         let method = paymentMethods?[indexPath.section]
         if method?.issuers != nil {
@@ -123,14 +123,14 @@ extension TableViewFunctions {
         return cell
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         
         guard let payment = payment else {
             return
         }
 
-        let cell = tableView.cellForRowAtIndexPath(indexPath) as? LoadingTableViewCell
+        let cell = tableView.cellForRow(at: indexPath) as? LoadingTableViewCell
         if let cell = cell {
             cell.startLoadingAnimation()
         }
@@ -149,9 +149,9 @@ extension TableViewFunctions {
                 return
             }
             
-            self?.safariViewController = SFSafariViewController(URL: url)
-            self?.safariViewController?.modalPresentationStyle = .FormSheet
-            self?.presentViewController(self!.safariViewController!, animated: true, completion: nil)
+            self?.safariViewController = SFSafariViewController(url: url)
+            self?.safariViewController?.modalPresentationStyle = .formSheet
+            self?.present(self!.safariViewController!, animated: true, completion: nil)
         }
     }
 }

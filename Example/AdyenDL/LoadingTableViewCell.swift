@@ -9,7 +9,7 @@
 import UIKit
 
 class LoadingTableViewCell: UITableViewCell {
-    let loadingIndicator = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
+    let loadingIndicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -22,13 +22,13 @@ class LoadingTableViewCell: UITableViewCell {
     }
     
     func startLoadingAnimation() {
-        dispatch_async(dispatch_get_main_queue()) {
+        DispatchQueue.main.async {
             self.loadingIndicator.startAnimating()
         }
     }
     
     func stopLoadingAnimation() {
-        dispatch_async(dispatch_get_main_queue()) {
+        DispatchQueue.main.async {
             self.loadingIndicator.stopAnimating()
         }
     }

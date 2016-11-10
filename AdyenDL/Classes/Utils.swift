@@ -10,16 +10,16 @@ import Foundation
 
 extension Array where Element : Equatable {
     
-    mutating func removeObject(object : Element) {
-        if let index = self.indexOf(object) {
-            self.removeAtIndex(index)
+    mutating func removeObject(_ object : Element) {
+        if let index = self.index(of: object) {
+            self.remove(at: index)
         }
     }
     
-    mutating func removeObjects(objects : [Element]) {
+    mutating func removeObjects(_ objects : [Element]) {
         for object in objects {
-            if let index = self.indexOf(object) {
-                self.removeAtIndex(index)
+            if let index = self.index(of: object) {
+                self.remove(at: index)
             }
         }
     }
@@ -29,14 +29,14 @@ extension Array where Element : Equatable {
 extension Dictionary {
     
     mutating func formUnion(
-        dictionary: Dictionary<Key, Value>) {
+        _ dictionary: Dictionary<Key, Value>) {
         for (key, value) in dictionary {
             self[key] = value
         }
     }
     
-    mutating func formUnion<S: SequenceType where
-        S.Generator.Element == (Key,Value)>(sequence: S) {
+    mutating func formUnion<S: Sequence>(_ sequence: S) where
+        S.Iterator.Element == (Key,Value) {
         for (key, value) in sequence {
             self[key] = value
         }
@@ -44,14 +44,14 @@ extension Dictionary {
     
 }
 
-extension NSURL {
+extension URL {
     
-    class func queryStringWith(parameters: [String: String]) -> String {
+    static func queryStringWith(_ parameters: [String: String]) -> String {
         var queryString = ""
-        let allowedCharacters = NSMutableCharacterSet.URLHostAllowedCharacterSet().mutableCopy() as! NSMutableCharacterSet
-        allowedCharacters.removeCharactersInString("+:=")
+        let allowedCharacters = (NSMutableCharacterSet.urlHostAllowed as NSCharacterSet).mutableCopy() as! NSMutableCharacterSet
+        allowedCharacters.removeCharacters(in: "+:=")
         for (key, value) in parameters {
-            guard let value = value.stringByAddingPercentEncodingWithAllowedCharacters(allowedCharacters) else {
+            guard let value = value.addingPercentEncoding(withAllowedCharacters: allowedCharacters as CharacterSet) else {
                 queryString = ""
                 break
             }
@@ -61,14 +61,14 @@ extension NSURL {
         return queryString
     }
     
-    func urlByAppending(parameters: Dictionary<String, String>) -> NSURL {
-        let parametersQuery = NSURL.queryStringWith(parameters)
+    func urlByAppending(_ parameters: Dictionary<String, String>) -> URL {
+        let parametersQuery = URL.queryStringWith(parameters)
         let absoluteString = "\(self.absoluteString)\(self.query != nil ? "&" : "?")\(parametersQuery)"
-        return NSURL(string: absoluteString) ?? self
+        return URL(string: absoluteString) ?? self
     }
     
     func queryParameters() -> [String: String]? {
-        let urlComponents = NSURLComponents(URL: self, resolvingAgainstBaseURL: true)
+        let urlComponents = URLComponents(url: self, resolvingAgainstBaseURL: true)
         var parameters = [String: String]()
         _ = urlComponents?.queryItems?.map({parameters[$0.name] = ($0.value ?? "")})
         return parameters
@@ -78,9 +78,9 @@ extension NSURL {
 
 extension NSMutableURLRequest {
     
-    func setHTTPBodyWith(parameters: [String: String]) {
-        let queryString = NSURL.queryStringWith(parameters)
-        self.HTTPBody = queryString.dataUsingEncoding(NSUTF8StringEncoding)
+    func setHTTPBodyWith(_ parameters: [String: String]) {
+        let queryString = URL.queryStringWith(parameters)
+        self.httpBody = queryString.data(using: String.Encoding.utf8)
     }
     
 }

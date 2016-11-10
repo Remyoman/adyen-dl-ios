@@ -20,16 +20,16 @@ public enum PaymentMethodType {
 }
 
 /// Payment method information.
-public class PaymentMethod {
+open class PaymentMethod {
 
     /// Name of the payment method.
-    public let name: String
+    open let name: String
     
     /// Payment method type.
-    public let type: PaymentMethodType
+    open let type: PaymentMethodType
     
     /// Issuers' payment methods (i.e. ING, ABN-AMRO etc. for iDEAL).
-    public let issuers: [PaymentMethod]?
+    open let issuers: [PaymentMethod]?
 
     let brandCode: String?
     let issuerId: String?

@@ -20,18 +20,18 @@ public enum Environment {
 }
 
 /// Describes environment configuration: Adyen's environment and Merchant's Server URLs.
-public class Configuration {
+open class Configuration {
     
-    public let environment: Environment
-    public let paymentSignatureURL: NSURL
-    public let paymentResultSignatureURL: NSURL
-    public let paymentStatusURL: NSURL
+    open let environment: Environment
+    open let paymentSignatureURL: URL
+    open let paymentResultSignatureURL: URL
+    open let paymentStatusURL: URL
     
     /// Specifies a count of retries to fetch payment status.
-    public var paymentStatusRetryCount = 10
+    open var paymentStatusRetryCount = 10
     
     //  Specifies time interval between retry atempts.
-    public var paymentStatusRetryInterval: NSTimeInterval = 5
+    open var paymentStatusRetryInterval: TimeInterval = 5
     
     /**
      Initialises configuration with provided parameters.
@@ -43,7 +43,7 @@ public class Configuration {
      
      - returns: Initialised instance of configuration.
      */
-    public init (environment: Environment, paymentSignatureURL: NSURL, paymentResultSignatureURL: NSURL, paymentStatusURL: NSURL) {
+    public init (environment: Environment, paymentSignatureURL: URL, paymentResultSignatureURL: URL, paymentStatusURL: URL) {
         self.environment = environment
         self.paymentSignatureURL = paymentSignatureURL
         self.paymentResultSignatureURL = paymentResultSignatureURL
@@ -55,18 +55,18 @@ public class Configuration {
 //  MARK: Private
 extension Configuration {
 
-    func hppDirectoryURL() -> NSURL {
-        var url: NSURL = NSURL(string: "https://live.adyen.com/hpp/directory.shtml")!
+    func hppDirectoryURL() -> URL {
+        var url: URL = URL(string: "https://live.adyen.com/hpp/directory.shtml")!
         if environment == .test {
-            url = NSURL(string: "https://test.adyen.com/hpp/directory.shtml")!
+            url = URL(string: "https://test.adyen.com/hpp/directory.shtml")!
         }
         return url
     }
     
-    func hppDetailsURL() -> NSURL {
-        var url: NSURL = NSURL(string: "https://live.adyen.com/hpp/details.shtml")!
+    func hppDetailsURL() -> URL {
+        var url: URL = URL(string: "https://live.adyen.com/hpp/details.shtml")!
         if environment == .test {
-            url = NSURL(string: "https://test.adyen.com/hpp/details.shtml")!
+            url = URL(string: "https://test.adyen.com/hpp/details.shtml")!
         }
         return url
     }

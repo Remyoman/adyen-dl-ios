@@ -10,9 +10,9 @@ import UIKit
 
 class LoadingTableViewController: UITableViewController {
 
-    let loadingView = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
+    let loadingView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
     
-    private var _loading = false
+    fileprivate var _loading = false
     var loading: Bool {
         get {
             return _loading
@@ -27,17 +27,17 @@ class LoadingTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadingView.hidden = true
+        loadingView.isHidden = true
         loadingView.stopAnimating()
         loadingView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(loadingView)
         view.addConstraint(
             NSLayoutConstraint(
                 item: loadingView,
-                attribute: .CenterX,
-                relatedBy: .Equal,
+                attribute: .centerX,
+                relatedBy: .equal,
                 toItem: view,
-                attribute: .CenterX,
+                attribute: .centerX,
                 multiplier: 1,
                 constant: 0
             )
@@ -45,10 +45,10 @@ class LoadingTableViewController: UITableViewController {
         view.addConstraint(
             NSLayoutConstraint(
                 item: loadingView,
-                attribute: .CenterY,
-                relatedBy: .Equal,
+                attribute: .centerY,
+                relatedBy: .equal,
                 toItem: view,
-                attribute: .CenterY,
+                attribute: .centerY,
                 multiplier: 1,
                 constant: 0
             )
@@ -56,9 +56,9 @@ class LoadingTableViewController: UITableViewController {
     }
     
     func updateUI() {
-        dispatch_async(dispatch_get_main_queue()) {
+        DispatchQueue.main.async {
             
-            self.loadingView.hidden = !self.loading
+            self.loadingView.isHidden = !self.loading
             
             if self.loading {
                 self.loadingView.startAnimating()

@@ -9,7 +9,7 @@
 import Foundation
 
 /// Describes payment object.
-public class Payment {
+open class Payment {
     
     let amount: Int
     let currency: String
@@ -27,7 +27,7 @@ public class Payment {
      - returns: Initialised Payment object.
      */
     public convenience init(amount: Int, currency: String, country: String) {
-        self.init(amount: amount, currency: currency, country: country, merchantReference: NSUUID().UUIDString)
+        self.init(amount: amount, currency: currency, country: country, merchantReference: UUID().uuidString)
     }
     
     /**

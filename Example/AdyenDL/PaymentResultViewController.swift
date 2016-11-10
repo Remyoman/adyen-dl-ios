@@ -14,11 +14,11 @@ class PaymentResultViewController: UIViewController {
     @IBOutlet var statusLabel: UILabel!
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
 
-    @IBAction func done(sender: AnyObject) {
-        dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func done(_ sender: AnyObject) {
+        dismiss(animated: true, completion: nil)
     }
 
-    func verifyResult(url: NSURL, paymentsProcessor: PaymentsProcessor) {
+    func verifyResult(_ url: URL, paymentsProcessor: PaymentsProcessor) {
         let payment = Payment(amount: 0, currency: "", country: "")
         paymentsProcessor.verifyResult(url, forPayment: payment) { (result, error) in
             
@@ -28,11 +28,11 @@ class PaymentResultViewController: UIViewController {
                 status = result.status.rawValue
             }
             
-            dispatch_async(dispatch_get_main_queue(), {
+            DispatchQueue.main.async(execute: {
                 self.statusLabel.text = status
                 
                 self.activityIndicator.stopAnimating()
-                self.doneButton.hidden = false
+                self.doneButton.isHidden = false
             })
         }
     }

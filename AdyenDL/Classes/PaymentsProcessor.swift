@@ -9,31 +9,31 @@
 import Foundation
 
 /**
- Error type.
+ ProcessorError type.
  
  - invalidSignature: Invalid signature.
  - unexpectedData:   Unexpected data or data format.
  - networkError:     Network error.
  - unexpectedError:  Unexpected error.
  */
-public enum Error: ErrorType {
+public enum ProcessorError: Error {
     case invalidSignature
     case unexpectedData
-    case networkError (NSError)
+    case networkError (Error)
     case unexpectedError
 }
 
-public typealias PaymentMethodsCompletion = (methods: [PaymentMethod]?, error: Error?) -> ()
-public typealias PayURLCompletion = (url: NSURL?, error: Error?) -> ()
-public typealias PaymentResultCompletion = (result: PaymentResult?, error: Error?) -> ()
+public typealias PaymentMethodsCompletion = (_ methods: [PaymentMethod]?, _ error: ProcessorError?) -> ()
+public typealias PayURLCompletion = (_ url: URL?, _ error: ProcessorError?) -> ()
+public typealias PaymentResultCompletion = (_ result: PaymentResult?, _ error: ProcessorError?) -> ()
 
 /// Payments processor.
-public class PaymentsProcessor {
+open class PaymentsProcessor {
     
     /// Environment configuration.
-    public let configuration: Configuration
+    open let configuration: Configuration
 
-    let session: NSURLSession
+    let session: URLSession
     
     /**
      Creates payments processor object and initialises it with provided configuration.
@@ -44,7 +44,7 @@ public class PaymentsProcessor {
      */
     public init(configuration: Configuration) {
         self.configuration = configuration
-        self.session = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration())
+        self.session = URLSession(configuration: URLSessionConfiguration.default)
     }
 
     /**
@@ -55,15 +55,15 @@ public class PaymentsProcessor {
      - parameter payment:    Payment object.
      - parameter completion: Completion handler will be called when list of payment methods is avalible or an error occured.
      */
-    public func fetchPaymentMethodsFor(payment: Payment, completion: PaymentMethodsCompletion) {
+    open func fetchPaymentMethodsFor(_ payment: Payment, completion: @escaping PaymentMethodsCompletion) {
         fetchMerchantSignatureFor(payment) { (parameters, error) in
             if let error = error {
-                completion(methods: nil, error: error)
+                completion(nil, error)
                 return
             }
             
             guard let parameters = parameters else {
-                completion(methods: nil, error: .unexpectedData)
+                completion(nil, .unexpectedData)
                 return
             }
             
@@ -82,15 +82,15 @@ public class PaymentsProcessor {
      - parameter method:     Payment method.
      - parameter completion: Completion handler will be called when payment URL is avalible or an error occured.
      */
-    public func fetchPayURLFor(payment: Payment, payingWith method: PaymentMethod, completion: PayURLCompletion) {
+    open func fetchPayURLFor(_ payment: Payment, payingWith method: PaymentMethod, completion: @escaping PayURLCompletion) {
         fetchMerchantSignatureFor(payment, payingWith: method) { (parameters, error) in
             if let error = error {
-                completion(url: nil, error: error)
+                completion(nil, error)
                 return
             }
             
             guard let parameters = parameters else {
-                completion(url: nil, error: .unexpectedData)
+                completion(nil, .unexpectedData)
                 return
             }
             
@@ -111,21 +111,21 @@ public class PaymentsProcessor {
      - parameter payment:    Payment object.
      - parameter completion: Completion handler will be called when final result of the payment is known or an error occured.
      */
-    public func verifyResult(resultURL: NSURL, forPayment payment: Payment, completion: PaymentResultCompletion) {
+    open func verifyResult(_ resultURL: URL, forPayment payment: Payment, completion: @escaping PaymentResultCompletion) {
         fetchMerchnantSignatureFor(resultURL: resultURL) { (parameters, error) in
             if let error = error {
-                completion(result: nil, error: error)
+                completion(nil, error)
                 return
             }
             
             guard let parameters = parameters else {
-                completion(result: nil, error: .unexpectedData)
+                completion(nil, .unexpectedData)
                 return
             }
             
             let validSignature = self.signature(fromResultURL: resultURL, matchesSignatureFromParameters: parameters)
             if validSignature == false {
-                completion(result: nil, error: .invalidSignature)
+                completion(nil, .invalidSignature)
                 return
             }
             
@@ -138,56 +138,56 @@ public class PaymentsProcessor {
 private typealias MerchantSignature = PaymentsProcessor
 extension MerchantSignature {
     
-    typealias MerchantSignatureCompletion = (parameters: [String: String]?, error: Error?) -> ()
+    typealias MerchantSignatureCompletion = (_ parameters: [String: String]?, _ error: ProcessorError?) -> ()
     
-    func fetchMerchantSignatureFor(payment: Payment, completion: MerchantSignatureCompletion) {
+    func fetchMerchantSignatureFor(_ payment: Payment, completion: @escaping MerchantSignatureCompletion) {
         fetchMerchantSignatureFor(parameters: payment.parameters(),
-                                  fromURL: configuration.paymentSignatureURL,
+                                  fromURL: configuration.paymentSignatureURL as URL,
                                   completion: completion)
     }
     
-    func fetchMerchantSignatureFor(payment: Payment, payingWith paymentMethod: PaymentMethod, completion: MerchantSignatureCompletion) {
+    func fetchMerchantSignatureFor(_ payment: Payment, payingWith paymentMethod: PaymentMethod, completion: @escaping MerchantSignatureCompletion) {
         var parameters = payment.parameters()
         parameters.formUnion(paymentMethod.parameters())
         fetchMerchantSignatureFor(parameters: parameters,
-                                  fromURL: configuration.paymentSignatureURL,
+                                  fromURL: configuration.paymentSignatureURL as URL,
                                   completion: completion)
     }
 
-    func fetchMerchnantSignatureFor(resultURL url: NSURL, completion: MerchantSignatureCompletion) {
+    func fetchMerchnantSignatureFor(resultURL url: URL, completion: @escaping MerchantSignatureCompletion) {
         var parameters = [String: String]()
-        if let urlComponents = NSURLComponents(URL: url, resolvingAgainstBaseURL: true) {
+        if let urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: true) {
             _ = urlComponents.queryItems?.map({parameters[$0.name] = ($0.value ?? "")})
         }
         fetchMerchantSignatureFor(parameters: parameters,
-                                  fromURL: configuration.paymentResultSignatureURL,
+                                  fromURL: configuration.paymentResultSignatureURL as URL,
                                   completion: completion)
     }
 
-    func fetchMerchantSignatureFor(parameters parameters: [String: String], fromURL url: NSURL, completion: MerchantSignatureCompletion) {
+    func fetchMerchantSignatureFor(parameters: [String: String], fromURL url: URL, completion: @escaping MerchantSignatureCompletion) {
         let url = url.urlByAppending(parameters)
-        session.dataTaskWithURL(url) { (data, response, error) in
+        session.dataTask(with: url, completionHandler: { (data, response, error) in
             if let error = error {
-                completion(parameters: nil, error: .networkError(error))
+                completion(nil, .networkError(error))
                 return
             }
             
             guard let data = data else {
-                completion(parameters: nil, error: .unexpectedData)
+                completion(nil, .unexpectedData)
                 return
             }
             
             do {
-                guard let parameters = try NSJSONSerialization.JSONObjectWithData(data, options: []) as? [String: String] else {
-                    completion(parameters: nil, error: .unexpectedData)
+                guard let parameters = try JSONSerialization.jsonObject(with: data, options: []) as? [String: String] else {
+                    completion(nil, .unexpectedData)
                     return
                 }
                 
-                completion(parameters: parameters, error: nil)
+                completion(parameters, nil)
             } catch {
-                completion(parameters: nil, error: .unexpectedData)
+                completion(nil, .unexpectedData)
             }
-        }.resume()
+        }) .resume()
     }
     
 }
@@ -195,28 +195,28 @@ extension MerchantSignature {
 private typealias PaymentMethods = PaymentsProcessor
 extension PaymentMethods {
     
-    func fetchPaymentMethodsFor(parameters parameters: [String: String], completion: PaymentMethodsCompletion) {
-        let request = NSMutableURLRequest(URL: self.configuration.hppDirectoryURL())
-        request.HTTPMethod = "POST"
+    func fetchPaymentMethodsFor(parameters: [String: String], completion: @escaping PaymentMethodsCompletion) {
+        let request = NSMutableURLRequest(url: self.configuration.hppDirectoryURL() as URL)
+        request.httpMethod = "POST"
         request.setHTTPBodyWith(parameters)
-        self.session.dataTaskWithRequest(request) { (data, response, error) in
+        self.session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) in
             if let error = error {
-                completion(methods: nil, error: .networkError(error))
+                completion(nil, .networkError(error))
                 return
             }
             
             guard let data = data else {
-                completion(methods: nil, error: .unexpectedError)
+                completion(nil, .unexpectedError)
                 return
             }
             
             do {
                 guard
-                    let json = try NSJSONSerialization.JSONObjectWithData(data, options: []) as? [String: AnyObject],
+                    let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: AnyObject],
                     let methods = json["paymentMethods"] as? [[String: AnyObject]]
                     else
                 {
-                    completion(methods: nil, error: .unexpectedError)
+                    completion(nil, .unexpectedError)
                     return
                 }
                 
@@ -238,11 +238,11 @@ extension PaymentMethods {
                 results.removeObjects(cardMethods)
                 results.append(PaymentMethod(cardPaymentMethodWith: cardMethods))
                 
-                completion(methods: results, error: nil)
+                completion(results, nil)
             } catch {
-                completion(methods: nil, error: .unexpectedError)
+                completion(nil, .unexpectedError)
             }
-            }.resume()
+            }) .resume()
     }
     
     func paymentMethod(withInfo info: [String: AnyObject]) -> PaymentMethod? {
@@ -271,7 +271,7 @@ extension PaymentMethods {
             }
         }
         
-        let isCard = CardBrandCode(rawValue: brandCode.lowercaseString) != nil
+        let isCard = CardBrandCode(rawValue: brandCode.lowercased()) != nil
         let type: PaymentMethodType = isCard ? .card : .other
         
         return PaymentMethod(
@@ -288,14 +288,14 @@ extension PaymentMethods {
 private typealias PaymentURL = PaymentsProcessor
 extension PaymentURL {
     
-    func fetchPayURLFor(parameters: [String: String], completion: PayURLCompletion) {
+    func fetchPayURLFor(_ parameters: [String: String], completion: @escaping PayURLCompletion) {
         let url = configuration.hppDetailsURL().urlByAppending(parameters)
-        session.dataTaskWithURL(url) { (_, response, error) in
+        session.dataTask(with: url, completionHandler: { (_, response, error) in
             if let error = error {
-                completion(url: nil, error: .networkError(error))
+                completion(nil, .networkError(error))
             }
-            completion(url: response?.URL, error: nil)
-            }.resume()
+            completion(response?.url, nil)
+            }) .resume()
     }
     
 }
@@ -303,7 +303,7 @@ extension PaymentURL {
 private typealias ResultVerification = PaymentsProcessor
 extension ResultVerification {
     
-    func signature(fromResultURL url: NSURL, matchesSignatureFromParameters parameters: [String: String]) -> Bool {
+    func signature(fromResultURL url: URL, matchesSignatureFromParameters parameters: [String: String]) -> Bool {
         let merchantSignatureKey = "merchantSig"
         guard
             let resultSignature = url.queryParameters()?[merchantSignatureKey],
@@ -316,16 +316,16 @@ extension ResultVerification {
         return resultSignature == merchantSignature
     }
     
-    func paymentStatus(fromResultURL url: NSURL) -> PaymentStatus? {
+    func paymentStatus(fromResultURL url: URL) -> PaymentStatus? {
         let authResultKey = "authResult"
-        guard let authResult = url.queryParameters()?[authResultKey]?.lowercaseString else {
+        guard let authResult = url.queryParameters()?[authResultKey]?.lowercased() else {
             return nil
         }
         
         return PaymentStatus(rawValue: authResult)
     }
     
-    var fetchResultFor: (payment: Payment, retryCount: Int, completion: PaymentResultCompletion) -> Void {
+    var fetchResultFor: (_ payment: Payment, _ retryCount: Int, _ completion: @escaping PaymentResultCompletion) -> Void {
         return { payment, retryCount, completion in
             
             let retryCount = retryCount - 1
@@ -334,66 +334,66 @@ extension ResultVerification {
             let parameters = [merchantReferenceKey: payment.merchantReference]
             let url = self.configuration.paymentStatusURL.urlByAppending(parameters)
             
-            self.session.dataTaskWithURL(url) {(data, response, error) in
+            self.session.dataTask(with: url, completionHandler: {(data, response, error) in
                 if let error = error {
-                    completion(result: nil, error: .networkError(error))
+                    completion(nil, .networkError(error))
                     return
                 }
                 
                 guard let data = data else {
-                    completion(result: nil, error: .unexpectedData)
+                    completion(nil, .unexpectedData)
                     return
                 }
                 
                 do {
-                    guard let json = try NSJSONSerialization.JSONObjectWithData(data, options: []) as? [String: AnyObject] else {
-                        completion(result: nil, error: .unexpectedData)
+                    guard let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: AnyObject] else {
+                        completion(nil, .unexpectedData)
                         return
                     }
                     
                     //  Check if status is determined.
                     let eventCodeKey = "eventCode"
                     let successKey = "success"
-                    if let eventCode = json[eventCodeKey] as? String, let success = json[successKey] as? String where eventCode == "AUTHORISATION" {
+                    if let eventCode = json[eventCodeKey] as? String, let success = json[successKey] as? String, eventCode == "AUTHORISATION" {
                         let status: PaymentStatus = (success == "true") ? .authorised : .refused
                         let result = PaymentResult(payment: payment, status: status)
-                        completion(result: result, error: nil)
+                        completion(result, nil)
                         return
                     }
                     
                     if retryCount > 0 {
                         //  Retry.
-                        let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(self.configuration.paymentStatusRetryInterval * Double(NSEC_PER_SEC)))
-                        dispatch_after(delayTime, dispatch_get_main_queue()) {
-                            self.fetchResultFor(payment: payment, retryCount: retryCount, completion: completion)
+                        let delayTime = DispatchTime.now() + Double(Int64(self.configuration.paymentStatusRetryInterval * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
+                        DispatchQueue.main.asyncAfter(deadline: delayTime) {
+                            self.fetchResultFor(payment, retryCount, completion)
                         }
                     } else {
                         //  Give up on retrying.
                         let finalResult = PaymentResult(payment: payment, status: .pending)
-                        completion(result: finalResult, error: nil)
+                        completion(finalResult, nil)
                     }
                 } catch {
-                    completion(result: nil, error: .unexpectedData)
+                    completion(nil, .unexpectedData)
                 }
-            }.resume()
+            }) .resume()
         }
     }
     
-    func fetchPaymentResultFor(payment: Payment, withResultURL url: NSURL, completion: PaymentResultCompletion) {
+    func fetchPaymentResultFor(_ payment: Payment, withResultURL url: URL, completion: @escaping PaymentResultCompletion) {
         guard let status = self.paymentStatus(fromResultURL: url) else {
-            completion(result: nil, error: .unexpectedData)
+            completion(nil, .unexpectedData)
             return
         }
         
         if status != .pending {
             let result = PaymentResult(payment: payment, status: status)
-            completion(result: result, error: nil)
+            completion(result, nil)
             return
         }
         
-        fetchResultFor(payment: payment,
-                       retryCount: self.configuration.paymentStatusRetryCount,
-                       completion: completion)
+        fetchResultFor(payment,
+                       self.configuration.paymentStatusRetryCount,
+                       completion)
     }
     
 }
