@@ -18,7 +18,7 @@ class CheckoutViewController: UIViewController {
     }
     
     @IBAction func pay(_ sender: AnyObject) {
-        let payment = Payment(amount: 10, currency: "EUR", country: "NL")
+        let payment = Payment(amount: 1, currency: "EUR", country: "NL")
         
         let paymentPicker = PaymentPickerViewController(payment: payment)
 
