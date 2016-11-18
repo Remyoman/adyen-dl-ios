@@ -20,7 +20,7 @@ public enum Environment {
 }
 
 /// Describes environment configuration: Adyen's environment and Merchant's Server URLs.
-open class Configuration {
+open class Configuration : NSObject {
     
     open let environment: Environment
     open let paymentSignatureURL: URL

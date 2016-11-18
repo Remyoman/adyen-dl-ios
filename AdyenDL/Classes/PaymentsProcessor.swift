@@ -28,7 +28,7 @@ public typealias PayURLCompletion = (_ url: URL?, _ error: ProcessorError?) -> (
 public typealias PaymentResultCompletion = (_ result: PaymentResult?, _ error: ProcessorError?) -> ()
 
 /// Payments processor.
-open class PaymentsProcessor {
+open class PaymentsProcessor : NSObject {
     
     /// Environment configuration.
     open let configuration: Configuration

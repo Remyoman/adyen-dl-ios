@@ -14,13 +14,13 @@ import UIKit
  - card:  Card payment method (VISA, AMEX etc.).
  - other: Local payment methods (iDEAL, PayPal etc.).
  */
-public enum PaymentMethodType {
+public enum PaymentMethodType: Int {
     case card
     case other
 }
 
 /// Payment method information.
-open class PaymentMethod {
+open class PaymentMethod : NSObject {
 
     /// Name of the payment method.
     open let name: String
@@ -100,18 +100,16 @@ extension Private {
     
 }
 
-extension PaymentMethod: Equatable {}
-
 public func ==(lhs: PaymentMethod, rhs: PaymentMethod) -> Bool {
     return lhs.name == rhs.name && lhs.type == rhs.type
 }
 
-extension PaymentMethod: CustomStringConvertible {
-    public var description: String {
+extension PaymentMethod {
+    override open var description: String {
         return name
     }
     
-    public var debugDescription: String {
+    override open var debugDescription: String {
         return name
     }
 }

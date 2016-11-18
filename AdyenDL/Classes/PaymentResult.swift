@@ -26,7 +26,7 @@ public enum PaymentStatus: String {
 }
 
 /// Payment result information.
-open class PaymentResult {
+open class PaymentResult : NSObject {
     
     /// Payment object.
     open let payment: Payment

@@ -9,7 +9,7 @@
 import Foundation
 
 /// Describes payment object.
-open class Payment {
+open class Payment : NSObject {
     
     let amount: Int
     let currency: String
