@@ -14,7 +14,7 @@ import UIKit
  - card:  Card payment method (VISA, AMEX etc.).
  - other: Local payment methods (iDEAL, PayPal etc.).
  */
-public enum PaymentMethodType: Int {
+@objc public enum PaymentMethodType: Int {
     case card
     case other
 }
