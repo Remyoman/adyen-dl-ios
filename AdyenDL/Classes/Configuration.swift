@@ -14,7 +14,7 @@ import Foundation
  - live: Adyen's Live environment.
  - test: Adyen's Test environment.
  */
-public enum Environment {
+public enum Environment: Int {
     case live
     case test
 }
